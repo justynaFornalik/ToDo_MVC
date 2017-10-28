@@ -38,7 +38,7 @@ class ToDoItem():
         self.is_done = True
 
     def __str__(self):
-        return self.name, self.description
+        return self.name + "|" + self.description
 
 
 class ToDoList():
@@ -49,5 +49,5 @@ class ToDoList():
 
     def __str__(self):
         for item in tasks:
-            return tasks.index(item), item.__str__()
+            return str(tasks.index(item)) + "|" + item.__str__() + "\n"
 
