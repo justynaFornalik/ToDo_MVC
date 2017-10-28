@@ -8,7 +8,7 @@ def add_ToDo_item():
     description = input("Enter description: ")
     new_item = ToDoItem(name, description)
     list_of_items.tasks.append(new_item)
-    print(list_of_items.tasks)
+    return list_of_items
 
 
 def modify_item(item):
@@ -16,6 +16,12 @@ def modify_item(item):
     new_description = input("Enter new description")
     item.name = new_name
     item.description = new_description
+    return item
+
+
+def delete_item(item):
+    list_of_items.tasks.remove(item)
+    return list_of_items
 
 
 
