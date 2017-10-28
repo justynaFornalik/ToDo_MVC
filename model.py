@@ -18,21 +18,28 @@
 # display description
 # Each action described above should have view.
 
+
 class ToDoItem():
     name = ""
     description = ""
     is_done = False
 
-    def __init__(self, name, description, is_done):
+    def __init__(self, name, description):
         self.name = name
         self.description = description
-        self.is_done = is_done
 
+        if len(self.name) > 20:
+            raise ValueError("Name can't be longer than 20 characters")
+
+        if len(self.description) > 150:
+            raise ValueError("Description can't be longer than 150 characters")
+    
     def mark_as_done():
         self.is_done = True
 
 
+class ToDoList():
+    tasks = []
 
-class ToDo():
-    notes = []
-
+    def add_new_task_to_tasks(new_task):
+        self.notes.append(new_task)
