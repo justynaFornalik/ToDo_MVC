@@ -37,9 +37,17 @@ class ToDoItem():
     def mark_as_done():
         self.is_done = True
 
+    def __str__(self):
+        return self.name, self.description
+
 
 class ToDoList():
     tasks = []
 
     def add_new_task_to_tasks(new_task):
         self.notes.append(new_task)
+
+    def __str__(self):
+        for item in tasks:
+            return tasks.index(item), item.__str__()
+
