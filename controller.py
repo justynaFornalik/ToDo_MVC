@@ -1,6 +1,6 @@
 from model import *
 
-list_of_items = ToDoList()
+
 
 
 def add_ToDo_item():
@@ -19,8 +19,8 @@ def modify_item(item):
     return item
 
 
-def delete_item(item):
-    list_of_items.tasks.remove(item)
+def delete_item(id):
+    list_of_items.pop(id)
     return list_of_items
 
 
