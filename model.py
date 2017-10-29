@@ -28,17 +28,14 @@ class ToDoItem():
         self.name = name
         self.description = description
 
-        if len(self.name) > 20:
-            raise ValueError("Name can't be longer than 20 characters")
-
-        if len(self.description) > 150:
-            raise ValueError("Description can't be longer than 150 characters")
+        
+        
     
     def mark_as_done():
         self.is_done = True
 
     def __str__(self):
-        return self.name + "|" + self.description
+        return "|" + self.name + "|" + self.description + "|" 
 
 
 class ToDoList():
@@ -47,7 +44,16 @@ class ToDoList():
     def add_new_task_to_tasks(new_task):
         self.notes.append(new_task)
 
+    def get_list(self):
+        return self.tasks
+
     def __str__(self):
-        for item in tasks:
-            return str(tasks.index(item)) + "|" + item.__str__() + "\n"
+        tasks_list = self.get_list()
+        for item in tasks_list:
+            print(str(tasks_list.index(item)) + "|" + item.name + "\n")
+
+    def __getitem__(self,index):
+        return self.tasks[index]
+
+
 
