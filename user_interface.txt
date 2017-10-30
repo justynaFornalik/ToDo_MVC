@@ -1,0 +1,13 @@
+########################################
+#         WELCOME TO TODO APP          #
+#                                      #
+#               MENU:                  #
+#       1. Display item's list.        #
+#       2. Add new item.               #
+#       3. Mark item as done.          #
+#       4. Remove item.                #
+#       5. Modify item.                #
+#       6. Display item's details      #
+#       7. Quit                        #
+#                                      #
+########################################

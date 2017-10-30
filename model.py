@@ -32,7 +32,7 @@ class ToDoList():
             items_info + str(self.items_list.index(item)) + "|" + item.__str__() 
         return items_info    
 
-    def add_item(self, item):
+    def add_item(self):
         name = input("Enter name: ")
         if len(name) > 20:
             raise ValueError("Name can't be longer than 20 characters")
@@ -47,6 +47,7 @@ class ToDoList():
         """Removes TodoItem object from index of list items_list"""
         index = int(input("Select the item to delete. The item's id: "))
         self.items_list.pop(index)
+        return self.items_list
 
     def modify_item(self):
 
@@ -65,6 +66,8 @@ class ToDoList():
     def mark_chosen_item(self):
         index = int(input("Select item to mark as done. The item's id: "))
         item_to_mark = self.items_list[index]
+        item_to_mark.mark()
+        return self.items_list
 
 
 
