@@ -1,59 +1,70 @@
-#     Expected features:
-
-# Add ToDo item consisting of the following attributes:
-# name - string, max 20 characters
-# description - string, max 150 characters
-# is_done - bool, false by default
-# Modify item
-# allow changing name
-# allow changing description
-# Delete item
-# Mark item as done
-# Display items' list
-# display id
-# display name
-#  Display specific todo item's details
-# display id
-# display name
-# display description
-# Each action described above should have view.
-
-
 class ToDoItem():
     name = ""
     description = ""
     is_done = False
 
     def __init__(self, name, description):
+        if not type(name) != str and type(description) != str:
+            raise ValueError
+
         self.name = name
         self.description = description
 
-        
-        
-    
-    def mark_as_done():
+    def mark(self):
         self.is_done = True
 
     def __str__(self):
-        return "|" + self.name + "|" + self.description + "|" 
+        is_done_sign = "[ ] "
+        if self.is_done:
+            is_done_sign = "[x] "
+
+        return self.name + "|" + self.description + "|" + is_done_sign + "|" + "\n" 
 
 
 class ToDoList():
-    tasks = []
-
-    def add_new_task_to_tasks(new_task):
-        self.notes.append(new_task)
-
-    def get_list(self):
-        return self.tasks
+    def __init__(self):
+        items_list = []
+        self.items_list = items_list
 
     def __str__(self):
-        tasks_list = self.get_list()
-        for item in tasks_list:
-            print(str(tasks_list.index(item)) + "|" + item.name + "\n")
+        items_info = ""
+        for item in self.items_list:
+            items_info + str(self.items_list.index(item)) + "|" + item.__str__() 
+        return items_info    
 
-    def __getitem__(self,index):
-        return self.tasks[index]
+    def add_item(self, item):
+        name = input("Enter name: ")
+        if len(name) > 20:
+            raise ValueError("Name can't be longer than 20 characters")
+        description = input("Enter description: ")
+        if len(description) > 150:
+            raise ValueError("Description can't be longer than 150 characters")
+        new_item = ToDoItem(name, description)
+        self.items_list.append(new_item)
+        return self.items_list
+
+    def remove_item(self):
+        """Removes TodoItem object from index of list items_list"""
+        index = int(input("Select the item to delete. The item's id: "))
+        self.items_list.pop(index)
+
+    def modify_item(self):
+
+        index = int(input("Select the item to modify. The item's id: "))
+        item_modified = self.items_list[index]
+        new_name = input("Enter new name: ")
+        if len(new_name) > 20:
+            raise ValueError("Name can't be longer than 20 characters")
+        new_description = input("Enter new description")
+        if len(new_description) > 150:
+            raise ValueError("Description can't be longer than 150 characters")
+        item_modified.name = new_name
+        item_modified.description = new_description
+        return self.items_list
+
+    def mark_chosen_item(self):
+        index = int(input("Select item to mark as done. The item's id: "))
+        item_to_mark = self.items_list[index]
 
 
 
