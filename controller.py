@@ -16,16 +16,32 @@ def main():
         user_choice = input("Select action(1 - 7): ")
         if user_choice == "1":
             my_list.__str__()
+            wait = input("Press any key to continue")
+            os.system("clear")
         elif user_choice == "2":
             my_list.add_item()
+            print("You successfully added the item!")
+            wait = input("Press any key to continue")
+            os.system("clear")
         elif user_choice == "3":
             my_list.mark_chosen_item()
+            print("You successfully marked the item as done!")
+            wait = input("Press any key to continue")
+            os.system("clear")
         elif user_choice == "4":
             my_list.remove_item()
+            print("You successfully deleted the item!")
+            wait = input("Press any key to continue")
+            os.system("clear")
         elif user_choice == "5":
             my_list.modify_item()
+            print("You successfully modified the item!")
+            wait = input("Press any key to continue")
+            os.system("clear")
         elif user_choice == "6":
             my_list.display_items_details()
+            wait = input("Press any key to continue")
+            os.system("clear")
         elif user_choice == "7":
             sys.exit()
         else:

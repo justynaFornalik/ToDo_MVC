@@ -14,9 +14,9 @@ class ToDoItem():
         self.is_done = True
 
     def __str__(self):
-        is_done_sign = "[ ] "
+        is_done_sign = "[ ]"
         if self.is_done:
-            is_done_sign = "[x] "
+            is_done_sign = "[x]"
 
         return self.name + "|" + self.description + "|" + is_done_sign + "|" + "\n" 
 
@@ -59,7 +59,7 @@ class ToDoList():
         new_name = input("Enter new name: ")
         if len(new_name) > 20:
             raise ValueError("Name can't be longer than 20 characters")
-        new_description = input("Enter new description")
+        new_description = input("Enter new description: ")
         if len(new_description) > 150:
             raise ValueError("Description can't be longer than 150 characters")
         item_modified.name = new_name
