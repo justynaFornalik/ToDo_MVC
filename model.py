@@ -29,8 +29,11 @@ class ToDoList():
     def __str__(self):
         items_info = ""
         for item in self.items_list:
-            items_info + str(self.items_list.index(item)) + "|" + item.__str__() 
-        return items_info    
+            items_info = items_info + str(self.items_list.index(item)) + "|" + item.__str__() 
+        print(items_info) 
+
+    def get_list(self):
+        return self.items_list
 
     def add_item(self):
         name = input("Enter name: ")
@@ -69,5 +72,9 @@ class ToDoList():
         item_to_mark.mark()
         return self.items_list
 
+    def display_items_details(self):
+        index = int(input("Select the item to display. The item's id: "))
+        item_to_display = self.items_list[index]
+        print(item_to_display.__str__())
 
 
