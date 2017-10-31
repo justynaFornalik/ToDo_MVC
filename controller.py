@@ -1,34 +1,49 @@
+import sys
+import os
 from model import *
 
-list_of_items = ToDoList()
+
+def print_ui():
+    with open('user_interface.txt') as user_ui:
+        for line in user_ui:
+            print (line)
 
 
-def add_ToDo_item():
-    name = input("Enter name: ")
-    if len(name) > 20:
-            raise ValueError("Name can't be longer than 20 characters")
-    description = input("Enter description: ")
-    if len(description) > 150:
-            raise ValueError("Description can't be longer than 150 characters")
-    new_item = ToDoItem(name, description)
-    list_of_items.tasks.append(new_item)
-    return list_of_items
+def main():
+    my_list = ToDoList()
+    while True:
+        print_ui()
+        user_choice = input("Select action(1 - 7): ")
+        if user_choice == "1":
+            my_list.__str__()
+            wait = input("Press any key to continue")
+            os.system("clear")
+        elif user_choice == "2":
+            my_list.add_item()
+            print("You successfully added the item!")
+            wait = input("Press any key to continue")
+            os.system("clear")
+        elif user_choice == "3":
+            my_list.mark_chosen_item()
+            wait = input("Press any key to continue")
+            os.system("clear")
+        elif user_choice == "4":
+            my_list.remove_item()
+            wait = input("Press any key to continue")
+            os.system("clear")
+        elif user_choice == "5":
+            my_list.modify_item()
+            wait = input("Press any key to continue")
+            os.system("clear")
+        elif user_choice == "6":
+            my_list.display_items_details()
+            wait = input("Press any key to continue")
+            os.system("clear")
+        elif user_choice == "7":
+            sys.exit()
+        else:
+            print("Invalid command!")
 
-
-def modify_item(id):
-    item_to_modify = list_of_items[id]
-    new_name = input("Enter new name: ")
-    new_description = input("Enter new description")
-    item_to_modify.name = new_name
-    item_to_modify.description = new_description
-    return item_to_modify
-
-
-def delete_item(id):
-    list_of_items.pop(id)
-    return list_of_items
-
-
-
-
+if __name__ == '__main__':
+    main()
 
