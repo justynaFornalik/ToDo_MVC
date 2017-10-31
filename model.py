@@ -49,32 +49,48 @@ class ToDoList():
     def remove_item(self):
         """Removes TodoItem object from index of list items_list"""
         index = int(input("Select the item to delete. The item's id: "))
-        self.items_list.pop(index)
+        if index <= len(self.items_list)-1:
+            self.items_list.pop(index)
+            print("You successfully deleted the item!")
+        else:
+            print("id out of range!")
         return self.items_list
 
     def modify_item(self):
-
         index = int(input("Select the item to modify. The item's id: "))
-        item_modified = self.items_list[index]
-        new_name = input("Enter new name: ")
-        if len(new_name) > 20:
-            raise ValueError("Name can't be longer than 20 characters")
-        new_description = input("Enter new description: ")
-        if len(new_description) > 150:
-            raise ValueError("Description can't be longer than 150 characters")
-        item_modified.name = new_name
-        item_modified.description = new_description
+        if index <= len(self.items_list)-1:
+            item_modified = self.items_list[index]
+            new_name = input("Enter new name: ")
+            if len(new_name) > 20:
+                raise ValueError("Name can't be longer than 20 characters")
+            new_description = input("Enter new description: ")
+            if len(new_description) > 150:
+                raise ValueError("Description can't be longer than 150 characters")
+            item_modified.name = new_name
+            item_modified.description = new_description
+            print("You successfully modified the item!")     
+        else:
+            print("id out of range!")
         return self.items_list
 
     def mark_chosen_item(self):
         index = int(input("Select item to mark as done. The item's id: "))
-        item_to_mark = self.items_list[index]
-        item_to_mark.mark()
+        if index <= len(self.items_list)-1:
+            item_to_mark = self.items_list[index]
+            item_to_mark.mark()
+            print("You successfully marked the item as done!")
+        else:
+            print("id out of range!")
+
         return self.items_list
 
     def display_items_details(self):
         index = int(input("Select the item to display. The item's id: "))
-        item_to_display = self.items_list[index]
-        print(item_to_display.__str__())
+        if index <= len(self.items_list)-1:
+            item_to_display = self.items_list[index]
+            print(item_to_display.__str__())
+        else:
+            print("id out of range!")
+
 
 
